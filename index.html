@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Document</title>
   <style>
+    /* Style dla kontenera obrazka i obrazków */
     .image-container {
       position: relative;
       display: inline-block; /* lub 'block', w zależności od układu */
@@ -27,6 +28,7 @@
       transform-origin: 50% 100%; /* Punkt obrotu na dole w połowie szerokości */
     }
 
+    /* Animacja powiewania */
     @keyframes wave {
       0%, 100% {
         transform: rotate(-1deg);
@@ -36,20 +38,52 @@
       }
     }
 
+    /* Style responsywne dla mniejszych ekranów */
     @media (max-width: 768px) {
       .image-container .a,
       .image-container .pl {
-        width: 300px; /* Może wymagać dostosowania w zależności od rzeczywistego rozmiaru obrazka .a */
+        width: 300px;
       }
       .image-container .pl {
-        width: 80px; /* Dalsze zmniejszenie dla ekranów mobilnych */
-        bottom: 140px; /* Mniejszy odstęp od krawędzi */
-        right: 210px; /* Mniejszy odstęp od krawędzi */
+        width: 80px;
+        bottom: 140px;
+        right: 210px;
       }
     }
+
+    /* Style dla obrazka .b */
     .b{
       width: 160px;
       margin-left: 70px;
+    }
+
+    /* Style dla tekstu statusu */
+    .status-text {
+      position: absolute;
+      bottom: 0; /* Zmienić jeśli potrzeba więcej miejsca pod flagą */
+      left: 0; /* Dostosuj, aby wyśrodkować tekst */
+      width: 100%; /* Może wymagać dostosowania */
+      text-align: center;
+      font-size: 14px; /* Dostosuj rozmiar czcionki */
+      color: #000; /* Dostosuj kolor tekstu */
+      z-index: 1;
+    }
+
+    /* Dodane style dla nowego tekstu "Stan na dzień" */
+    .date-text {
+      position: absolute;
+      top: 0; /* Ustawienie nad obrazkiem .a */
+      left: 50%; /* Wyśrodkowanie */
+      transform: translateX(-50%); /* Precyzyjne wyśrodkowanie */
+      font-size: 18px; /* Dostosuj rozmiar czcionki */
+      color: #333; /* Dostosuj kolor tekstu */
+      z-index: 3; /* Upewnienie się, że jest na wierzchu */
+    }
+    .status-text{
+      margin-bottom: 360px;
+    }
+    .a{
+      margin-top: 20px;
     }
   </style>
 </head>
@@ -58,8 +92,21 @@
     <img class="b" src="zyro-image (3).png" alt="">
     <img class="a" src="zyro-image (2).png" alt="" />
     <img class="pl" src="pl.png" alt="">
+    <div class="status-text" id="statusText"></div> <!-- Tutaj będzie wyświetlana dynamicznie generowana data -->
   </div>
+  <script>
+    // Funkcja do ustawienia dzisiejszej daty
+    function setDate() {
+      var today = new Date();
+      var day = today.getDate().toString().padStart(2, '0');
+      var month = (today.getMonth() + 1).toString().padStart(2, '0'); // Miesiące są od 0 do 11
+      var year = today.getFullYear();
+      document.getElementById('statusText').textContent = 'Stan na dzień ' + day + '.' + month + '.' + year;
+    }
+    window.onload = setDate; // Ustaw datę po załadowaniu okna
+  </script>
   <!-- Pozostałe elementy strony -->
 </body>
 </html>
+
 
