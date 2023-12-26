@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+=<!DOCTYPE html>
 <html lang="pl">
 <head>
   <meta charset="UTF-8" />
@@ -39,7 +39,7 @@
     }
 
     /* Style responsywne dla mniejszych ekranów */
-    @media (max-width: 768px) {
+   
       .image-container .a,
       .image-container .pl {
         width: 300px;
@@ -49,12 +49,12 @@
         bottom: 140px;
         right: 210px;
       }
-    }
+    
 
     /* Style dla obrazka .b */
     .b{
       width: 200px;
-      margin-left: 50px;
+  
       margin-top: 30p;
     }
 
@@ -77,8 +77,8 @@
       top: 0; /* Ustawienie nad obrazkiem .a */
       left: 50%; /* Wyśrodkowanie */
       transform: translateX(-50%); /* Precyzyjne wyśrodkowanie */
-      font-size: 18px; /* Dostosuj rozmiar czcionki */
-      color: #333; /* Dostosuj kolor tekstu */
+      font-size:10px; /* Dostosuj rozmiar czcionki */
+      color: grey; /* Dostosuj kolor tekstu */
       z-index: 3; /* Upewnienie się, że jest na wierzchu */
       font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     }
@@ -92,6 +92,7 @@
 </head>
 <body>
   <div class="image-container">
+    <img src="./str.svg" alt="">
     <img class="b" src="zyro-image (3).png" alt="">
     <img class="a" src="zyro-image (2).png" alt="" />
     <img class="pl" src="pl.png" alt="">
