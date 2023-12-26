@@ -1,24 +1,64 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Document</title>
-  </head>
-  <body>
-    <img class="b" src="./zyro-image (3).png" alt="" />
-    <img class="a" src="zyro-image (2).png" alt="" />
-    <style>
-      @media (max-width: 768px) {
-        .b {
-          width: 300px;
-          margin-left: 40px;
-        }
-        .a {
-          width: 400px;
-          height: auto;
-        }
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Document</title>
+  <style>
+    .image-container {
+      position: relative;
+      display: inline-block; /* lub 'block', w zależności od układu */
+    }
+
+    .image-container .a {
+      display: block; /* Zapewnia, że obraz 'a' nie ma dodatkowej przestrzeni poniżej */
+      width: 400px; /* lub 100%, aby wypełnić kontener */
+      height: auto;
+    }
+
+    .image-container .pl {
+      position: absolute;
+      bottom: 10px; /* Dostosuj odstęp od dolnej krawędzi */
+      right: 10px; /* Dostosuj odstęp od prawej krawędzi */
+      width: 50px; /* Zmniejszona szerokość */
+      height: auto; /* Wysokość dostosowana proporcjonalnie */
+      z-index: 2; /* Wyższy niż .a, aby być na wierzchu */
+      animation: wave 1s linear infinite; /* Animacja powiewania */
+      transform-origin: 50% 100%; /* Punkt obrotu na dole w połowie szerokości */
+    }
+
+    @keyframes wave {
+      0%, 100% {
+        transform: rotate(-1deg);
       }
-    </style>
-  </body>
+      50% {
+        transform: rotate(1deg);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .image-container .a,
+      .image-container .pl {
+        width: 300px; /* Może wymagać dostosowania w zależności od rzeczywistego rozmiaru obrazka .a */
+      }
+      .image-container .pl {
+        width: 80px; /* Dalsze zmniejszenie dla ekranów mobilnych */
+        bottom: 140px; /* Mniejszy odstęp od krawędzi */
+        right: 210px; /* Mniejszy odstęp od krawędzi */
+      }
+    }
+    .b{
+      width: 160px;
+      margin-left: 50px;
+    }
+  </style>
+</head>
+<body>
+  <div class="image-container">
+    <img class="b" src="zyro-image (3).png" alt="">
+    <img class="a" src="zyro-image (2).png" alt="" />
+    <img class="pl" src="pl.png" alt="">
+  </div>
+  <!-- Pozostałe elementy strony -->
+</body>
 </html>
