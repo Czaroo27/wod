@@ -85,8 +85,11 @@
           Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
           sans-serif;
       }
-      .status-text {
-        margin-bottom: 360px;
+      .date-time-text {
+        margin-left: 50px;
+        font-family: sans-serif;
+        font-weight: bold;
+        font-size: 15px;
       }
       .a {
         margin-top: 10px;
@@ -98,20 +101,55 @@
       <img src="str.svg" alt="" />
       <img class="b" src="zyro-image (3).png" alt="" />
       <img class="a" src="zyro-image (2).png" alt="" />
+      <div class="date-time-text" id="dateTimeText"></div>
+      <!-- Nowy element dla daty i godziny -->
       <div class="status-text" id="statusText"></div>
-      <!-- Tutaj będzie wyświetlana dynamicznie generowana data -->
     </div>
     <script>
-      // Funkcja do ustawienia dzisiejszej daty
-      function setDate() {
+      // Funkcja do ustawienia dzisiejszej daty i godziny
+      function setDateTime() {
         var today = new Date();
         var day = today.getDate().toString().padStart(2, "0");
-        var month = (today.getMonth() + 1).toString().padStart(2, "0"); // Miesiące są od 0 do 11
+        var monthIndex = today.getMonth();
         var year = today.getFullYear();
-        document.getElementById("statusText").textContent =
-          "Stan na dzień " + day + "." + month + "." + year;
+        var hours = today.getHours().toString().padStart(2, "0");
+        var minutes = today.getMinutes().toString().padStart(2, "0");
+        var seconds = today.getSeconds().toString().padStart(2, "0");
+
+        // Tłumaczenie miesiąca na polski
+        var months = [
+          "stycznia",
+          "lutego",
+          "marca",
+          "kwietnia",
+          "maja",
+          "czerwca",
+          "lipca",
+          "sierpnia",
+          "września",
+          "października",
+          "listopada",
+          "grudnia",
+        ];
+        var month = months[monthIndex];
+
+        document.getElementById("dateTimeText").textContent =
+          day +
+          " " +
+          month +
+          " " +
+          year +
+          " (" +
+          hours +
+          ":" +
+          minutes +
+          ":" +
+          seconds +
+          ")";
       }
-      window.onload = setDate; // Ustaw datę po załadowaniu okna
+
+      window.onload = setDateTime; // Ustaw datę i godzinę po załadowaniu okna
+      setInterval(setDateTime, 1000); // Aktualizuj datę i godzinę co sekundę
     </script>
     <!-- Pozostałe elementy strony -->
   </body>
