@@ -100,6 +100,31 @@
       .down {
         margin-left: 140px;
       }
+      .nr {
+        color: #333;
+        font-family: sans-serif;
+        display: flex;
+        font-size: 12px;
+      }
+
+      .dane {
+        background-color: rgba(238, 240, 243, 255);
+        width: 300px;
+        height: 50px;
+        border-radius: 5px;
+      }
+      .jebac {
+        margin: 10px;
+        font-family: sans-serif;
+        font-weight: bold;
+        font-size: 13px;
+      }
+      .jebacc {
+        display: flex;
+        margin-top: 1px;
+        font-family: sans-serif;
+        color: #9f9f9f;
+      }
     </style>
   </head>
   <body>
@@ -111,6 +136,12 @@
       <!-- Nowy element dla daty i godziny -->
       <div class="status-text" id="statusText"></div>
       <img class="down" src="down.svg" alt="" />
+
+      <span class="nr">DANE DOWODU OSOBISTEGO</span>
+      <div class="dane">
+        <span class="jebac">ZZC 436234</span>
+        <span class="jebacc">Numer dowodu osobistego</span>
+      </div>
     </div>
     <script>
       // Funkcja do ustawienia dzisiejszej daty i godziny
